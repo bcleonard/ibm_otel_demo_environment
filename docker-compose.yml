@@ -1,0 +1,135 @@
+services:
+  minio:
+    image: minio/minio
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    container_name: icos_otel_minio
+    pull_policy: missing
+    entrypoint: [""]
+    command: ["sh", "-c", "mkdir -p /data/mimir && minio server --quiet /data"]
+    environment:
+      - MINIO_ROOT_USER=mimir
+      - MINIO_ROOT_PASSWORD=supersecret
+    volumes:
+      - minio-data:/data
+
+  grafana:
+    image: grafana/grafana:latest
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    container_name: icos_otel_grafana
+    pull_policy: missing
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_USERS_DEFAULT_THEME=light
+      - GF_LOG_MODE=console
+      - GF_LOG_LEVEL=critical
+    volumes:
+      - ./config/grafana-provisioning-datasources.yaml:/etc/grafana/provisioning/datasources/provisioning-datasources.yaml:ro
+    ports:
+      - 9000:3000
+
+  mimir-1:
+    image: grafana/mimir:latest
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    container_name: icos_otel_mimir_1
+    pull_policy: missing
+    command: ["-config.file=/etc/mimir.yaml"]
+    hostname: mimir-1
+    depends_on:
+      - minio
+    volumes:
+      - ./config/mimir.yaml:/etc/mimir.yaml
+      - ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yaml
+      - mimir-1-data:/data
+
+  mimir-2:
+    image: grafana/mimir:latest
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    container_name: icos_otel_mimir_2
+    pull_policy: missing
+    command: ["-config.file=/etc/mimir.yaml"]
+    hostname: mimir-2
+    depends_on:
+      - minio
+    volumes:
+      - ./config/mimir.yaml:/etc/mimir.yaml
+      - ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yaml
+      - mimir-2-data:/data
+
+  mimir-3:
+    image: grafana/mimir:latest
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    container_name: icos_otel_mimir_3
+    pull_policy: missing
+    command: ["-config.file=/etc/mimir.yaml"]
+    hostname: mimir-3
+    depends_on:
+      - minio
+    volumes:
+      - ./config/mimir.yaml:/etc/mimir.yaml
+      - ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yaml
+      - mimir-3-data:/data
+
+  load-balancer:
+    image: nginx:latest
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    container_name: icos_otel_lb
+    pull_policy: missing
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - "mimir-1"
+      - "mimir-2"
+      - "mimir-3"
+    ports:
+      - 9009:9009
+
+  prometheus:
+    image: prom/prometheus:latest
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    container_name: icos_otel_prometheus
+    pull_policy: missing
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --log.level=error
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=1d
+      - --storage.tsdb.retention.size=10GB
+      - --web.enable-admin-api
+      - --web.console.libraries=/usr/share/prometheus/console_libraries
+      - --web.console.templates=/usr/share/prometheus/consoles
+    volumes:
+      - ./config/prometheus.yaml:/etc/prometheus/prometheus.yml
+      - ./config/rules.yaml:/etc/prometheus/rules.yaml
+    depends_on:
+      - "mimir-1"
+      - "mimir-2"
+      - "mimir-3"
+
+volumes:
+  minio-data:
+  mimir-1-data:
+  mimir-2-data:
+  mimir-3-data:
+
