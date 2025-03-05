@@ -93,15 +93,17 @@ Second, you need to configure and deploy an OTEL collector.  Use the following s
 4. Select the "General Tab"
 5. Make sure the "Collector Status" is enabled.
 6. Type in a Name for the collector, such as "IBM COS OTEL OBSERVE"
-7. In the Export, Additional HTTP Headers, type in the text "X-Scope-OrgID=lab"
-8. In the Export, Additional Secret HTTP Headers, type in the text "X-Scope-OrgID=lab"
-9. Next, select the Deployments tab.
-10.  Select the Access Pools, Storage Pool Sets, or individual devices to deploy the collector.
-11.  Select eh "Save" button and the collector configuration will be saved and deployed to the appliances selected.
+7. In the "Exporter Endpoint" section type in the URL, "http://<ip address / hostname>:9009/otlp/v1/metrics".  Use the hostname or ip address of the server that has the OTEL stack you just created.
+8. For the "Exporter Type", select "otlphttp"
+9. In the Export, Additional HTTP Headers, type in the text "X-Scope-OrgID=lab"
+10. In the Export, Additional Secret HTTP Headers, type in the text "X-Scope-OrgID=lab"
+11. Next, select the Deployments tab.
+12.  Select the Access Pools, Storage Pool Sets, or individual devices to deploy the collector.
+13.  Select the "Save" button and the collector configuration will be saved and deployed to the appliances selected.
 
 # Acessing the OTEL Stack
 
-The OTEL stack will expose two ports that you can access.  The first is Grafana Mimir which can be accessed via the URL:  http://< hostname / ip address >:9009.  Thiis the Grafana Mimir Admin page.   This is not the main inferface but just gives you a view of the Grafana Mimir configuration and status.
+The OTEL stack will expose two ports that you can access.  The first is Grafana Mimir which can be accessed via the URL:  http://< hostname / ip address >:9009.  This is the Grafana Mimir Admin page.   This is not the main inferface but just gives you a view of the Grafana Mimir configuration and status.
 
 The 2nd is the Grafana interface which can be accessed via the URL:  http://< hostname / ip address >:9000.   This is the main Grafana webpage.
 
