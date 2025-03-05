@@ -51,3 +51,9 @@ limits:
   # Per-tenant allowed ingestion burst size (in number of samples).
   # CLI flag: -distributor.ingestion-burst-size
   #[ingestion_burst_size: <int> | default = 200000]
+
+
+  # per-user tenant series limit
+  #[max_global_series_per_user: <int> | default = 1500000]
+  max_global_series_per_user: 2000000
+
