@@ -1,4 +1,4 @@
-Demo Environment
+# IBM COS OTEL Demo Environment
 
 # Why?
 
@@ -124,6 +124,14 @@ There are some gotcha and limitations you need to be aware of.  Most of the issu
   * First, you can remove the collectors for the appliances they are deployed on.   Start with just a few and then deploy collectors to appliances one by one to keep the Memory / CPU to acceptable levels.
   * Increase the number of CPUs.   I'm not sure how effective this will be.  The demo is sized so there is one (1) CPU per mimir instance and one (1) for the OS.   If CPU are less than mimir instances + 1, increasing the number of CPU's is an easy thing to try.
   * Increasing the amount of memory - I'm not sure how effective this or if it is even necessary.   I've had limited success in fixing overload issues by changing the amount of memory.
+
+# How To Get Help
+
+If you have questions, comments or concerns, the only way to get help is through this repository. We recommend searching through [issues first](https://github.com/bcleonard/ibm_otel_demo_environment/issues). If you don't find what you're looking for, feel free to open a new issue. Please do NOT open a ticket with IBM Support. They can't and won't help you.
+
+# IBM COS OTEL Dashboards
+
+This repository does not contain any IBM COS OTEL dasbboards.  That is by design.  The [IBM COS OTEL Dashboards](https://github.com/bcleonard/ibm_cos_otel_dashboards) repository contains dashboards for you to review and use.
 
 # Notice
 
