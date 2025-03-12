@@ -54,18 +54,16 @@ The following are perquisites for the demo stack:
 
 * 4x CPU
 * 16GB memory
-* 30GB disk space
+* 32GB disk space
 * A running/configured docker environment
 
 This environment was tested in a Debian 12 Bookworm virtual image using the above prerequisites.
 
 ## How to Run / Start the Demo
 
-On you virtual machine, clone the repository via the following command via the CLI:
+The instructions below assume that the user you are running can manage docker as a non-root user.   Follow the instructions [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/) to allow non-root users to manage your local docker instance.
 
-```bash
-git clone git@github.com:bcleonard/ibm_otel_demo_environment.git
-```
+On you virtual machine, clone the github repository, [bcleonard/ibm_otel_demo_environment.git](https://github.com/bcleonard/ibm_otel_demo_environment).  There are several ways to clone a github repository, choose the method that is easiest for you.
 
 then change into the repository via the following command via the CLI:
 
