@@ -142,7 +142,7 @@ Grafana gives guidance on how to calculate the amount resources needed in [Grafa
 | Appliance            | Max # of Active Series/24 hours | Disk Space Used (MB) |
 | -------------------- | ------------------------------- | -------------------- |
 | Manager              | ~19,000                         | ~325                 |
-|<td colspan=3>TESTING</td>
+|<td colspan=3>TESTING</td>|
 | Accesser - Standard / Vault Mode ||| 
 | Accesser (No Load)    | ~15,600                         | ~267                 |
 | Accssser (With Load)  | ~19.375                         | ~300                 |
