@@ -132,10 +132,10 @@ Grafana gives guidance on how to calculate the amount resources needed in [Grafa
 | Appliance            | Max # of Active Series/24 hours | Disk Space Used (MB) |
 | -------------------- | ------------------------------- | -------------------- |
 | Manager              | ~19,000                         | ~325                 |
-| Standard / Vault Mode | 
+| Accesser - Standard / Vault Mode ||| 
 | Accesser (No Load)    | ~15,600                         | ~267                 |
 | Accssser (With Load)  | ~19.375                         | ~300                 |
-| Standard / Container Mode |
+| Accesser - Standard / Container Mode |
 | Accesser (No Load)    | **PENDING**                         | **PENDING**                 |
 | Accssser (With Load)  | **PENDING**                         | **PENDING**                 |
 | Slicestor             | ~25,600                         | ~437                 |
