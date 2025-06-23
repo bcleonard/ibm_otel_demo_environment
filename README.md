@@ -129,10 +129,20 @@ IBM is following the industry standard of not supplying the exact number of metr
 
 Grafana gives guidance on how to calculate the amount resources needed in [Grafana Mimir Planning Capacity](https://grafana.com/docs/mimir/latest/manage/run-production-environment/planning-capacity/) and its all based on the number of active series.
 
+<table>
+  <tr> 
+    <td>Column One</td>
+    <td>**Column Two**</td>
+  </tr>
+  <tr>
+    <td colspan="2">span</td>
+  </tr>
+</table>
+
 | Appliance            | Max # of Active Series/24 hours | Disk Space Used (MB) |
 | -------------------- | ------------------------------- | -------------------- |
 | Manager              | ~19,000                         | ~325                 |
-|<td colspan=3> Accesser - Standard / Vault Mode
+|<td colspan=3>TESTING</td>
 | Accesser - Standard / Vault Mode ||| 
 | Accesser (No Load)    | ~15,600                         | ~267                 |
 | Accssser (With Load)  | ~19.375                         | ~300                 |
