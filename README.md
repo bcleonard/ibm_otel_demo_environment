@@ -129,26 +129,19 @@ IBM is following the industry standard of not supplying the exact number of metr
 
 Grafana gives guidance on how to calculate the amount resources needed in [Grafana Mimir Planning Capacity](https://grafana.com/docs/mimir/latest/manage/run-production-environment/planning-capacity/) and its all based on the number of active series.
 
-<table>
-  <tr> 
-    <td>Column One</td>
-    <td>**Column Two**</td>
-  </tr>
-  <tr>
-    <td colspan="2">span</td>
-  </tr>
-</table>
-
 | Appliance            | Max # of Active Series/24 hours | Disk Space Used (MB) |
-| -------------------- | :-------------------------------: | :--------------------: |
-| Manager              | ~19,000                         | ~325                 |
-| Accesser - Standard / Vault Mode ||| 
-| No Load    | ~15,600                         | ~267                 |
-| With Load  | ~19.375                         | ~300                 |
+| -------------------- | :-----------------------------: | :------------------: |
+| Manager (Non-HA) | ~19,000 | ~325 |
+| Manager (HA)     | **PANDING** | **PENDING** |
+| Accesser - Standard / Vault Mode |
+| No Load   | ~15,600 | ~267 |
+| With Load | ~19.375 | ~300 |
 | Accesser - Standard / Container Mode |
-| Accesser (No Load)    | **PENDING**                         | **PENDING**                 |
-| Accssser (With Load)  | **PENDING**                         | **PENDING**                 |
-| Slicestor             | ~25,600                         | ~437                 |
+| No Load   | **PENDING** | **PENDING** |
+| With Load | **PENDING** | **PENDING** |
+| Slicestor |
+| Standard Mode | ~25,600 | ~437 |
+| CD Mode | **PENDING** | **PENDING** |
 
 The methodogy used to determine this is documented in [Issue #5](https://github.com/bcleonard/ibm_otel_demo_environment/issues/5).
 
