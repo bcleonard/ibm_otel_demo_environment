@@ -123,6 +123,28 @@ There are some gotcha and limitations you need to be aware of.  Most of the issu
   * Increase the number of CPUs.   I'm not sure how effective this will be.  The demo is sized so there is one (1) CPU per mimir instance and one (1) for the OS.   If CPU are less than mimir instances + 1, increasing the number of CPU's is an easy thing to try.
   * Increasing the amount of memory - I'm not sure how effective this or if it is even necessary.   I've had limited success in fixing overload issues by changing the amount of memory.
 
+# Sizing & Resource Requirements
+
+IBM is following the industry standard of not supplying the exact number of metrics nor providing documentation for every single metric.  As the product evolves and changes, the number of metrics will change as well.
+
+Grafana gives guidance on how to calculate the amount resources needed in [Grafana Mimir Planning Capacity](https://grafana.com/docs/mimir/latest/manage/run-production-environment/planning-capacity/) and its all based on the number of active series.
+
+| Appliance            | Max # of Active Series/24 hours | Disk Space Used (MB) |
+| -------------------- | :-----------------------------: | :------------------: |
+| Manager (Non-HA) | ~19,000 | ~325 |
+| Manager (HA)     | **PENDING** | **PENDING** |
+| **Accesser** - Standard / Vault Mode |
+| No Load   | ~15,600 | ~267 |
+| With Load | ~19.375 | ~300 |
+| **Accesser** - Standard / Container Mode |
+| No Load   | **PENDING** | **PENDING** |
+| With Load | **PENDING** | **PENDING** |
+| **Slicestor** |
+| Standard Mode | ~25,600 | ~437 |
+| CD Mode | **PENDING** | **PENDING** |
+
+The methodogy used to determine this is documented in [Issue #5](https://github.com/bcleonard/ibm_otel_demo_environment/issues/5).
+
 # How To Get Help
 
 If you have questions, comments or concerns, the only way to get help is through this repository. We recommend searching through [issues first](https://github.com/bcleonard/ibm_otel_demo_environment/issues). If you don't find what you're looking for, feel free to open a new issue. Please do NOT open a ticket with IBM Support. They can't and won't help you.
