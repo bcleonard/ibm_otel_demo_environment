@@ -135,13 +135,13 @@ Grafana gives guidance on how to calculate the amount resources needed in [Grafa
 | Manager (HA)     | **PENDING** | **PENDING** |
 | **Accesser** - Standard / Vault Mode |
 | No Load   | ~15,600 | ~267 |
-| With Load | ~19.375 | ~300 |
+| With Load | ~19,375 | ~300 |
 | **Accesser** - Standard / Container Mode |
 | No Load   | **PENDING** | **PENDING** |
 | With Load | **PENDING** | **PENDING** |
 | **Slicestor**  - Vault Mode |
 | Standard | ~25,600 | ~437 |
-| CDM | ~12808 | ~219 |
+| CDM | ~12,808 | ~219 |
 | **Slicestor** - Container Mode |
 | Standard | **PENDING** | **PENDING** |
 | CDM | **PENDING** | **PENDING** |
