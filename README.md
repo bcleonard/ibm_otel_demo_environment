@@ -141,7 +141,7 @@ Grafana gives guidance on how to calculate the amount resources needed in [Grafa
 | With Load | **PENDING** | **PENDING** |
 | **Slicestor**  - Vault Mode |
 | Standard | ~25,600 | ~437 |
-| CDM | **PENDING** | **PENDING** |
+| CDM | ~12808 | ~219 |
 | **Slicestor** - Container Mode |
 | Standard | **PENDING** | **PENDING** |
 | CDM | **PENDING** | **PENDING** |
