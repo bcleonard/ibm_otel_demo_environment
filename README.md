@@ -139,9 +139,12 @@ Grafana gives guidance on how to calculate the amount resources needed in [Grafa
 | **Accesser** - Standard / Container Mode |
 | No Load   | **PENDING** | **PENDING** |
 | With Load | **PENDING** | **PENDING** |
-| **Slicestor** |
-| Standard Mode | ~25,600 | ~437 |
-| CD Mode | **PENDING** | **PENDING** |
+| **Slicestor**  - Vault Mode |
+| Standard | ~25,600 | ~437 |
+| CDM | ~12808 | ~219 |
+| **Slicestor** - Container Mode |
+| Standard | **PENDING** | **PENDING** |
+| CDM | **PENDING** | **PENDING** |
 
 The methodogy used to determine this is documented in [Issue #5](https://github.com/bcleonard/ibm_otel_demo_environment/issues/5).
 
